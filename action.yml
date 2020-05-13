@@ -1,0 +1,26 @@
+name: 'Vue FTP deploy'
+description: 'Deploy application to a windows server via FTP'
+inputs:
+  host: # url to ftp-server
+    description: 'FTP server name'
+    required: true
+  port: # port ftp-server uses
+    description: 'Port ftp server uses. Defaults to 21'
+    required: false
+    default: 21
+  user: # ftp-server user
+    description: connect to ftp werver as this user'
+    required: true
+  password: # ftp-users password
+    description: 'Password of the ftp user'
+    required: true
+  local-dir: # directory to upload files from
+    description: 'Local directory to uplaod files from'
+    required: true
+  remote-dir: # directory to upload to
+    description: 'Remote directory to upload to'
+    required: true
+outputs:
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
